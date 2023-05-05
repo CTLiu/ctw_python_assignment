@@ -7,16 +7,14 @@ import os
 
 load_dotenv()
 
+api_domain = os.getenv("ALPHAVANTAGE_DOMAIN")
 apikey = os.getenv("ALPHAVANTAGE_APIKEY")
 symbol = ["IBM", "AAPL"]
 financial_data_repository = FinancialDataRepository()
 
 for stockname in symbol:
-    url = (
-        "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="
-        + stockname
-        + "&apikey="
-        + apikey
+    url = "{}/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={}&apikey={}".format(
+        api_domain, stockname, apikey
     )
     r = requests.get(url)
     data = r.json()
