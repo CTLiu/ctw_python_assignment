@@ -1,4 +1,4 @@
-from .connection import Base, Session
+from .connection import Base, Session, engine
 from sqlalchemy import Column, Integer, String, Date, Numeric
 
 
@@ -9,6 +9,9 @@ class FinancialData(Base):
     open_price = Column(Numeric(10, 2))
     close_price = Column(Numeric(10, 2))
     volume = Column(Numeric)
+
+
+Base.metadata.create_all(bind=engine)
 
 
 class FinancialDataRepository:

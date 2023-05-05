@@ -8,16 +8,11 @@ load_dotenv()
 
 db_user = os.getenv("MYSQL_USERNAME")
 db_password = os.getenv("MYSQL_PASSWORD")
+db_host = os.getenv("MYSQL_HOST")
 
 engine = create_engine(
-    "mysql+pymysql://{}:{}@localhost:3306/finance".format(db_user, db_password)
+    "mysql+pymysql://{}:{}@{}:3306/finance".format(db_user, db_password, db_host)
 )
 
-with engine.connect() as conn:
-    conn.execute(text("CREATE DATABASE IF NOT EXISTS finance"))
-
 Base = declarative_base()
-
-
-Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from .validations import GetStatisticsValidator, GetFinancialDataValidator
 from pydantic import ValidationError
 from .services import get_financial_data, calculate_statistics_data
