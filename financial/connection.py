@@ -11,7 +11,8 @@ db_password = os.getenv("MYSQL_PASSWORD")
 db_host = os.getenv("MYSQL_HOST")
 
 engine = create_engine(
-    "mysql+pymysql://{}:{}@{}:3306/finance".format(db_user, db_password, db_host)
+    "mysql+pymysql://{}:{}@{}:3306/finance".format(db_user, db_password, db_host),
+    echo=True,
 )
 
 Base = declarative_base()

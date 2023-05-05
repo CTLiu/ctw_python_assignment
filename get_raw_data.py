@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-from financial.repositories import FinancialDataRepository
+from models import FinancialDataRepository
 import requests
 import os
 

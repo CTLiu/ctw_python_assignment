@@ -18,25 +18,6 @@ class FinancialDataRepository:
     def __init__(self):
         self.session = Session()
 
-    def upsert(self, prices):
-        try:
-            for symbol, date, open_price, close_price, volume in prices:
-                self.session.merge(
-                    FinancialData(
-                        symbol=symbol,
-                        date=date,
-                        open_price=open_price,
-                        close_price=close_price,
-                        volume=volume,
-                    )
-                )
-            self.session.commit()
-        except:
-            self.session.rollback()
-            raise
-        finally:
-            self.session.close()
-
     def get_symbol_prices_by_date_range_and_pagination(
         self, start_date, end_date, symbol, limit=None, page=None
     ):
