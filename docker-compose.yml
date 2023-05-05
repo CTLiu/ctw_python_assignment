@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: mysql
+    image: mysql:8.0.32
     container_name: db
     ports:
       - '${MYSQL_PORT}:3306'
@@ -23,7 +23,7 @@ services:
       dockerfile: ./Dockerfile
     command: uvicorn financial.main:app --host 0.0.0.0
     ports:
-      - '5000:5000'
+      - '8000:8000'
     networks:
       - py_network
     restart: on-failure

@@ -4,6 +4,8 @@ The repository is a prototype for the CTW take home assignment.
 
 It is implemented by python 3 and integrated with MYSQL db.
 
+I developed this by using Mac, and for mac the port 5000 was reserved for ControlCenter, which is a native macOS application. This service will restart after killing the app, so I binded the port to 8000 instead of 5000, which was a little different from the assignment examples.
+
 ## Tech stack
 
 My main language is not python, so all of the libraries and file structure are based on my expereinces on Node.js.
@@ -33,11 +35,11 @@ Did not appear on the requirements.txt since it is only used in development stag
 4. From the terminal messages, you may observe that there are some error messages from the app telling that is not able to connect to the db. This is because the mysql server is not allowing connections at that moment. The app will retry until the mysql server is ready for connections.
 5. After the following messege appears, the app is ready.
    ```
-   INFO:     Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+   INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
    ```
 6. Modify your config, change the `MYSQL_HOST=db` to `MYSQL_HOST=127.0.0.1`
 7. Execute command, and the stock prices from [AlphaVantage](https://www.alphavantage.co/documentation/) will be fetched and saved to the local mysql.
    ```
    python3 get_raw_data.py
    ```
-8. An auto generated swagger can be found at `http://localhost:5000/doc`, and you may fire the requests from the GUI.
+8. An auto generated swagger can be found at `http://localhost:8000/doc`, and you may fire the requests from the GUI.

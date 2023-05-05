@@ -14,5 +14,5 @@ COPY --from=build /usr/local/ /usr/local/
 
 COPY .env .
 COPY financial ./financial
-EXPOSE 5000
+EXPOSE 8000
 COPY --from=build /usr/local/ /usr/local/
