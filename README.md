@@ -25,7 +25,7 @@ Did not appear on the requirements.txt since it is only used in development stag
 ## Getting Started
 
 1. Get an apikey from [AlphaVantage](https://www.alphavantage.co/documentation/)
-2. After cloning from this repo, duplicate a `.env.example` and rename it `.env` and put it in the same directory of `.env.example`. Don\'t forget to place your apikey to the field `ALPHAVANTAGE_APIKEY`. For the other fields you may leave it as is.
+2. After cloning from this repo, duplicate a `.env.example` and rename it `.env` and put it in the same directory of `.env.example`. Don\'t forget to place your apikey to the field `ALPHAVANTAGE_APIKEY`. For the other fields `MYSQL_USERNAME`, `MYSQL_PASSWORD`, and `MYSQL_ROOT_PASSWORD`, you may fill in any value that you would prefer most.
 3. Execute command
    ```
    docker-compose up
@@ -35,4 +35,9 @@ Did not appear on the requirements.txt since it is only used in development stag
    ```
    INFO:     Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
    ```
-6. An auto generated swagger can be found at `http://localhost:5000/doc`, and you may fire the requests from the GUI.
+6. Modify your config, change the `MYSQL_HOST=db` to `MYSQL_HOST=127.0.0.1`
+7. Execute command, and the stock prices from [AlphaVantage](https://www.alphavantage.co/documentation/) will be fetched and saved to the local mysql.
+   ```
+   python3 get_raw_data.py
+   ```
+8. An auto generated swagger can be found at `http://localhost:5000/doc`, and you may fire the requests from the GUI.
