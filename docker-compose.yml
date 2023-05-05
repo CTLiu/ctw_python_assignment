@@ -18,12 +18,12 @@ services:
     depends_on:
       - db
     container_name: 'financial-app'
-    image: app
-    volumes:
-      - ./:/app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     command: uvicorn financial.main:app --host 0.0.0.0
     ports:
-      - '8000:8000'
+      - '5000:5000'
     networks:
       - py_network
     restart: on-failure
