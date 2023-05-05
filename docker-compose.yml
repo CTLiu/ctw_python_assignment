@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    container_name: db
+    ports:
+      - '${MYSQL_PORT}:3306'
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - py_network
+
+  app:
+    depends_on:
+      - db
+    container_name: 'financial-app'
+    image: app
+    volumes:
+      - ./:/app
+    command: uvicorn financial.main:app --host 0.0.0.0
+    ports:
+      - '8000:8000'
+    networks:
+      - py_network
+    restart: on-failure
+
+networks:
+  py_network:
+    driver: bridge
