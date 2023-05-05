@@ -6,6 +6,10 @@ services:
     container_name: db
     ports:
       - '${MYSQL_PORT}:3306'
+    volumes:
+      - ../data:/var/lib/mysql
+    expose:
+      - '3306'
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USERNAME}
@@ -19,7 +23,6 @@ services:
       - db
     container_name: 'financial-app'
     build:
-      context: .
       dockerfile: ./Dockerfile
     command: uvicorn financial.main:app --host 0.0.0.0
     ports:
