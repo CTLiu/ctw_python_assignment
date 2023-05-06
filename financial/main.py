@@ -14,12 +14,14 @@ It is implemented by python 3 and integrated with MYSQL db.
 - Can query the prices by symbols.
 - Symbols may be one of **AAPL** or **IBM**.
 - Date range for **start_date** and **end_date** has to be a date before today, and **start_date** has to be before **end_date**.
+- Date format should be YYYY-MM-DD, 2023-01-01
 - Pagination is also implemented.
 
 ### Get statistics by symbol
 - Can query the prices by symbols.
 - Symbols may be one of **AAPL** or **IBM**.
 - Date range for **start_date** and **end_date** has to be a date before today, and **start_date** has to be before **end_date**.
+- Date format should be YYYY-MM-DD, 2023-01-01
 """
 
 tags_metadata = [
