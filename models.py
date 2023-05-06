@@ -25,7 +25,7 @@ class FinancialData(Base):
     date = Column(Date, primary_key=True)
     open_price = Column(Numeric(10, 2))
     close_price = Column(Numeric(10, 2))
-    volume = Column(Numeric)
+    volume = Column(Integer)
 
 
 class FinancialDataRepository:
