@@ -37,9 +37,8 @@ Did not appear on the requirements.txt since it is only used in development stag
    ```
    INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
    ```
-6. Modify your config, change the `MYSQL_HOST=db` to `MYSQL_HOST=127.0.0.1`
-7. Execute command, and the stock prices from [AlphaVantage](https://www.alphavantage.co/documentation/) will be fetched and saved to the local mysql.
+6. Execute command, and the stock prices from [AlphaVantage](https://www.alphavantage.co/documentation/) will be fetched and saved to the local mysql.
    ```
    python3 get_raw_data.py
    ```
-8. An auto generated swagger can be found at `http://localhost:8000/doc`, and you may fire the requests from the GUI.
+7. An auto generated swagger can be found at `http://localhost:8000/doc`, and you may fire the requests from the GUI.
