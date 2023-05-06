@@ -12,7 +12,7 @@ db_password = os.getenv("MYSQL_PASSWORD")
 db_host = os.getenv("MYSQL_HOST")
 
 engine = create_engine(
-    "mysql+pymysql://{}:{}@127.0.0.1:3306/finance".format(db_user, db_password)
+    "mysql+pymysql://{}:{}@127.0.0.1:3306/finance".format(db_user, db_password),
 )
 
 Base = declarative_base()
@@ -49,5 +49,5 @@ class FinancialDataRepository:
             self.session.rollback()
             raise
         finally:
-            print("")
-            # self.session.close()
+            self.session.close()
+            return
