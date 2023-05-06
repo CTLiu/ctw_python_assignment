@@ -41,4 +41,4 @@ Did not appear on the requirements.txt since it is only used in development stag
    ```
    python3 get_raw_data.py
    ```
-7. An auto generated swagger can be found at `http://localhost:8000/doc`, and you may fire the requests from the GUI.
+7. An auto generated swagger can be found at `http://localhost:8000/docs`, and you may fire the requests from the GUI.
