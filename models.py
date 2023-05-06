@@ -9,10 +9,13 @@ load_dotenv()
 
 db_user = os.getenv("MYSQL_USERNAME")
 db_password = os.getenv("MYSQL_PASSWORD")
-db_host = os.getenv("MYSQL_HOST")
+db_host = os.getenv("MYSQL_HOST_LOCAL")
+db_port = os.getenv("MYSQL_PORT")
 
 engine = create_engine(
-    "mysql+pymysql://{}:{}@127.0.0.1:3306/finance".format(db_user, db_password),
+    "mysql+pymysql://{}:{}@{}:{}/finance".format(
+        db_user, db_password, db_host, db_port
+    ),
 )
 
 Base = declarative_base()
