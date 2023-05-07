@@ -14,7 +14,7 @@ def get_financial_data(start_date, end_date, symbol, limit, page):
             )
         )
         total_count = finacial_data_repository.get_count_of_symbol_prices_by_date_range(
-            start_date, end_date, symbol, limit, page
+            start_date, end_date, symbol
         )
 
         result["pagination"] = create_pagination_object(total_count, page, limit)

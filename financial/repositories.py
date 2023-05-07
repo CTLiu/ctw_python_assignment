@@ -23,7 +23,7 @@ class FinancialDataRepository:
             query_obj = session.query(FinancialData)
 
             if symbol:
-                query_obj.filter(FinancialData.symbol == symbol)
+                query_obj = query_obj.filter(FinancialData.symbol == symbol)
             if start_date:
                 query_obj = query_obj.filter(FinancialData.date >= start_date)
             if end_date:
@@ -35,14 +35,12 @@ class FinancialDataRepository:
 
             return financial_data
 
-    def get_count_of_symbol_prices_by_date_range(
-        self, start_date, end_date, symbol, limit, page
-    ):
+    def get_count_of_symbol_prices_by_date_range(self, start_date, end_date, symbol):
         with Session(engine) as session:
             query_obj = session.query(FinancialData)
 
             if symbol:
-                query_obj.filter(FinancialData.symbol == symbol)
+                query_obj = query_obj.filter(FinancialData.symbol == symbol)
             if start_date:
                 query_obj = query_obj.filter(FinancialData.date >= start_date)
             if end_date:
