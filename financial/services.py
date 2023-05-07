@@ -13,14 +13,14 @@ def get_financial_data(start_date, end_date, symbol, limit, page):
                 start_date, end_date, symbol, limit, page
             )
         )
-        total_count = finacial_data_repository.get_count_of_symbol_prices_by_date_range_and_pagination(
+        total_count = finacial_data_repository.get_count_of_symbol_prices_by_date_range(
             start_date, end_date, symbol, limit, page
         )
 
         result["pagination"] = create_pagination_object(total_count, page, limit)
         result["data"] = symbol_prices
-        return result
 
+    # Any kinds of error will be added to the result and responded
     except Exception as error:
         result["info"]["error"] = str(error)
 
@@ -41,6 +41,7 @@ def calculate_statistics_data(start_date, end_date, symbol):
         close_price_sum = 0
         volume_sum = 0
 
+        # one iteration through the data would do the job
         for data in symbol_prices:
             count += 1
             open_price_sum += data.open_price
@@ -54,7 +55,7 @@ def calculate_statistics_data(start_date, end_date, symbol):
         result["data"]["average_daily_close_price"] = round(close_price_sum / count, 2)
         result["data"]["average_daily_volume"] = round(volume_sum / count, 2)
 
-        return result
+    # Any kinds of error will be added to the result and responded
     except Exception as error:
         result["info"]["error"] = str(error)
 

@@ -9,6 +9,7 @@ load_dotenv()
 
 db_user = os.getenv("MYSQL_USERNAME")
 db_password = os.getenv("MYSQL_PASSWORD")
+# connects by using localhost, not the MYSQL_HOST
 db_host = os.getenv("MYSQL_HOST_LOCAL")
 db_port = os.getenv("MYSQL_PORT")
 

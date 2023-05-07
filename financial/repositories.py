@@ -35,7 +35,7 @@ class FinancialDataRepository:
 
             return financial_data
 
-    def get_count_of_symbol_prices_by_date_range_and_pagination(
+    def get_count_of_symbol_prices_by_date_range(
         self, start_date, end_date, symbol, limit, page
     ):
         with Session(engine) as session:

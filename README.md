@@ -4,9 +4,25 @@ The repository is a prototype for the CTW take home assignment.
 
 It is implemented by python 3 and integrated with MYSQL db.
 
+## Tech stack
+
+In financial directory, each building parts of the code are located in a different file.
+
+- connetction.py: for establishing engine creation with the mysql
+- repositories.py: for querying the mysql database
+- services.py: where the business logics are
+- validations.py: where the input validations are
+- main.py: the entry point for the API
+
+The `.env.example` would be a dummy file to introduce what are the variables we would need to develop in local.
+
+During development stage, we may maintain a `.env` file to keep our API keys, and should be added to `.gitignore` to prevent from pushing to github.
+
+During production, there should be other infra tools to set the environment variables on the machine, e.g. the k8s manifests. The `dotenv` library will not overwrite the environment variables that already exists, so there is no need to worry about overwriting production envs by the local develop ones. [reference](https://github.com/motdotla/dotenv#what-happens-to-environment-variables-that-were-already-set)
+
 I developed this by using Mac, and for mac the port 5000 was reserved for ControlCenter, which is a native macOS application. This service will restart after killing the app, so I binded the port to 8000 instead of 5000, which was a little different from the assignment examples.
 
-## Tech stack
+### dependencies
 
 My main language is not python, so all of the libraries and file structure are based on my expereinces on Node.js.
 
